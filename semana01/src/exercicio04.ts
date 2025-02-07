@@ -11,7 +11,7 @@ let precValidos = validos / (eleitores/100)
 let precBrancos = brancos / (eleitores/100)
 let precNulos = nulos / (eleitores/100)
 
-console.log(`Do total de ${eleitores} eleitores, possuem ${validos} votos validos, representando um total de ${precValidos}`)
-console.log(`Brancos sendo um total de ${precBrancos} e nulos sendo ${precNulos}`)
+console.log(`Do total de ${eleitores} eleitores, possuem ${validos} votos validos, representando um total de ${precValidos}%`)
+console.log(`Votos Brancos sendo um total de ${precBrancos}% e nulos sendo ${precNulos}%`)
 
 }
