@@ -12,8 +12,18 @@ import exercicio17 from "./exercicio17";
 import exercicio18 from "./exercicio18";
 import exercicio19 from "./exercicio19";
 import exercicio28 from "./exercicio28";
+import exercicio20 from "./exercicio20";
+import exercicio21 from "./exercicio21";
+import exercicio22 from "./exercicio22";
+import exercicio23 from "./exercicio23";
+import exercicio24 from "./exercicio24";
+import exercicio25 from "./exercicio25";
+import exercicio26 from "./exercicio26";
+import exercicio27 from "./exercicio27";
 var opcao = leia.keyInSelect(["Senha Acesso", "Numero Par ou Impar", "Final da Placa", "Valor das maças", "Media de compras", 
-"teste", "Quantidade de moedas", "", "", "", "Contagem ate o numero do usuario","", "123132"]) + 1;
+"teste", "Quantidade de moedas", "", "", "", 
+"Contagem ate o numero do usuario","Contagem do numero ate 0", "Resto 5", "Maior e menor numero", "Xerox",
+"Tabuada", "Contagem", "", "Entre 100 e 200 "]) + 1;
 
 
 
@@ -29,7 +39,14 @@ const exercicios = {
     9:exercicio17,
     10:exercicio18,
     11:exercicio19,
-    12:
+    12:exercicio20,
+    13:exercicio21,
+    14:exercicio22,
+    15:exercicio23,
+    16:exercicio24,
+    17:exercicio25,
+    18:exercicio26,
+    19:exercicio27
     
 } as { [key: number]: () => void}
 
