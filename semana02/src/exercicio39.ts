@@ -13,7 +13,8 @@ export default function exercicio39(){
         invertido.push(vetor[i])
 
     }
-
+    
     console.log(vetor)
+    //invertido = vetor.reverse() // se cria depois de mostrar pois meche no primeiro vetor
     console.log(invertido)
 }
