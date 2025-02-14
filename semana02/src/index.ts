@@ -20,10 +20,21 @@ import exercicio24 from "./exercicio24";
 import exercicio25 from "./exercicio25";
 import exercicio26 from "./exercicio26";
 import exercicio27 from "./exercicio27";
-var opcao = leia.keyInSelect(["Senha Acesso", "Numero Par ou Impar", "Final da Placa", "Valor das maças", "Media de compras", 
+import exercicio35 from "./exercicio35";
+import exercicio36 from "./exercicio36";
+import exercicio37 from "./exercicio37";
+import exercicio38 from "./exercicio38";
+import exercicio39 from "./exercicio39";
+import exercicio40 from "./exercicio40";
+import exercicio41 from "./exercicio41";
+var opcao = leia.keyInSelect([
+"Senha Acesso", "Numero Par ou Impar", "Final da Placa","Valor das maças", "Media de compras", 
 "teste", "Quantidade de moedas", "", "", "", 
 "Contagem ate o numero do usuario","Contagem do numero ate 0", "Resto 5", "Maior e menor numero", "Xerox",
-"Tabuada", "Contagem", "", "Entre 100 e 200 "]) + 1;
+"Tabuada", "Contagem", "", "(Exercicio27) - Entre 100 e 200 ", "(Exercicio35) - Vetor multiplicado por 5",
+"(Exercicio36) - Soma dos numeros do vetor", "(Exercicio37) - Fica so numeros pares", "(Exercicio38) - Fica so numeros maiores de dez",
+"(Exercicio39) - Inverção de vetor", "(Exercicio40) - Temperatura Min e Max", "(Exercicio41) - DNA Filho"
+]) + 1;
 
 
 
@@ -46,7 +57,14 @@ const exercicios = {
     16:exercicio24,
     17:exercicio25,
     18:exercicio26,
-    19:exercicio27
+    19:exercicio27,
+    20:exercicio35,
+    21:exercicio36,
+    22:exercicio37,
+    23:exercicio38,
+    24:exercicio39,
+    25:exercicio40,
+    26:exercicio41
     
 } as { [key: number]: () => void}
 
