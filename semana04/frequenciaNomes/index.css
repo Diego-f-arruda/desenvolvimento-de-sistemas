@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #c1c1c1;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1{
+    color: #333;
+}
+
+input, button{
+    padding: 10px; /*borda do componente para dentro*/
+    margin: 10px;  /*borda do componente para Fora*/
+    font-size: 16px;
+}
+
+.chart-container{
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.container{
+    background-color: #e4e4e4;
+    width: 60%; /*largura*/
+    border-radius: 10px;
+    padding: 15px; /*Espaçamento dos itens para borda*/
+    margin: 15px auto; /*Espaçamento externo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container button{
+    padding: 10px 15px;
+    background-color: blue;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;/*Espaçamento dos itens acima*/
+}
+
+.container input{
+    padding: 8px;
+    border-radius: 5px;
+
+}
+
+.profile-item{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-item img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
