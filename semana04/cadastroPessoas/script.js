@@ -1,5 +1,5 @@
 async function addPerson(event){
-    event.preventDefaulth();
+    event.preventDefault();
     const name = document.getElementById("name").value;
     const age = document.getElementById("idade").value;
     const email = document.getElementById("email").value;
@@ -18,8 +18,7 @@ async function addPerson(event){
         email: email,
         phone: phone,
         address: address,
-        city:
-        city
+        city: city
     }
 
     await fetch("http://localhost:3000/person", {
