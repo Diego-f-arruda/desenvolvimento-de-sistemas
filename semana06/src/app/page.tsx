@@ -1,23 +1,29 @@
+'use client'
 import Link from "next/link";
 import "./home.css";
 
 import Person from "@/Components/Person";
+import { useState } from "react";
 
 export default function Home() {
+  //let contador = 0;
+  const [contador, setContador] = useState<number>(0)
+
+  function incrementar(){
+    
+    setContador(contador + 1)
+    console.log(`Contador ${contador}`)
+  }
+
+  function resetar(){
+    setContador(0);
+  }
+ 
   return (
-     <div>
-        <h1>HOME</h1>
-        <Link href="/login">
-          <button>Login</button>
-        </Link>
-
-        <div className="container">
-          <Person nome = {"Diego"} idade={35}/>
-          <Person nome={"Alice "} idade={3}/>
-          <Person nome={"Juliana"} idade={36}/>
-          
-
-        </div>
-     </div>
+    <div className="container">
+      <h1>Contador {contador}</h1>
+      <button onClick={incrementar}>Incrementar</button>
+      <button onClick={resetar}>Resetar</button>
+    </div>
   );
 }
