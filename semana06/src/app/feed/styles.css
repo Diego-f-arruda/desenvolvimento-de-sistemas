@@ -1,0 +1,31 @@
+.container{
+    background-color: yellow;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    gap: 32px; /*espaço entre as colunas do grid*/
+    padding: 0 64px;
+
+}
+
+.cardProfile{
+    background-color: #202024;
+    height: 200px;
+    margin-top: 16px;
+    border-radius: 8px;
+
+}
+
+.main{
+    background-color: #202024;
+    margin-top: 16px;
+    border-radius: 8px;
+
+}
+
+.cover{
+    border-radius: 8px 8px 0 0;
+    width: 256px;
+    height: 80px;
+}

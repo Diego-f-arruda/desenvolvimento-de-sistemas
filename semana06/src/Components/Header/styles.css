@@ -1,0 +1,17 @@
+.header{
+    background-color: #202024;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+    padding: 20px 0;
+}
+
+.header h1{
+    color: #fff;
+    font-size: 60;
+}
+
+.header img{
+    height: 45px;
+}

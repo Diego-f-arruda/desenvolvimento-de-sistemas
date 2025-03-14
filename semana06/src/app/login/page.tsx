@@ -2,16 +2,27 @@
 import Link from "next/link";
 import "./styles.css";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function login(){
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
+    const router = useRouter();
+
 
     function handleSubmit(){
-        console.log(email)
-        console.log(password)
+         // EXEMPLO REQUISIÇÃO
+         // const respose = await fetch("http://meu-dominio/login", {
+         //     method: "POST",
+         //     body: {
+         //         email,
+         //         password
+         //     }as any,
+         // })
+ 
+         router.replace("/");
     }
 
     return(
@@ -33,8 +44,10 @@ export default function login(){
                     onChange={(event) => setPassword(event.target.value)}
                 />
                 <button 
-                onClick={handleSubmit}
-                className="button">
+                    onClick={handleSubmit}
+                    className="button"
+                    disabled={!email || !password}
+                    >
                     Entrar
                 </button>
             </div>
