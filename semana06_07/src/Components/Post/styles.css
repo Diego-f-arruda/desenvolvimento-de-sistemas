@@ -1,0 +1,54 @@
+.post{
+    background-color: #202024;
+    margin-top: 16px;
+    border-radius: 8px;
+    padding: 40px;
+    color: aliceblue;
+    margin-top: 15px;
+}
+
+.post + .post{ /*se houver outro item (post) ai sim ira aplicar a configuração indicada*/
+    margin-top: 15px;
+}
+
+.post header{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;/*Joga um pra cada canto*/
+}
+
+.post header .author{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.post header .author .author-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.post header .author .author-info strong{
+    color: aliceblue;
+    line-height: 1.6;
+}
+
+.post header .author .author-info span, 
+.post header time{
+   color: #8d8d99;
+   line-height: 1.6;
+   font-size: 14px;
+}
+
+.content{
+    line-height: 1.6;
+    margin-top: 24px;
+    color: #c4c4cc;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
