@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "author": {
+        "name": "Alice Silva",
+        "role": "Desenvolvedora Front-end",
+        "avatarUrl": "https://github.com/benedettmanu.png"
+      },
+      "publishedAt": "2025-03-18T12:00:00Z",
+      "content": "Hoje compartilhei algumas dicas sobre React no meu blog! Falei sobre como utilizar hooks personalizados para gerenciar estado de forma eficiente e evitar repetições de código. Também mencionei a importância da organização dos componentes e como utilizar o Context API para melhorar a comunicação entre eles. Confira o post completo no meu site!"
+    },
+    {
+      "id": "2",
+      "author": {
+        "name": "Carlos Souza",
+        "role": "Engenheiro de Software",
+        "avatarUrl": "https://github.com/marcuss83.png"
+      },
+      "publishedAt": "2025-03-17T15:30:00Z",
+      "content": "Trabalhando em um projeto incrível com NestJS e WebSockets. Estou desenvolvendo um sistema de notificações em tempo real para uma plataforma de colaboração, onde os usuários recebem atualizações instantâneas sobre novas mensagens, tarefas concluídas e menções em comentários. O uso de WebSockets tem sido essencial para garantir uma experiência fluida e eficiente."
+    },
+    {
+      "id": "3",
+      "author": {
+        "name": "Mariana Oliveira",
+        "role": "UX Designer",
+        "avatarUrl": "https://github.com/niipvargas.png"
+      },
+      "publishedAt": "2025-03-16T10:15:00Z",
+      "content": "Design de interfaces pensando na acessibilidade é essencial! Recentemente, realizei uma pesquisa sobre como melhorar a experiência de navegação para pessoas com deficiência visual e auditiva. Implementamos melhorias como contraste adequado, suporte a leitores de tela e navegação por teclado. Pequenas mudanças podem fazer uma grande diferença na inclusão digital!"
+    },
+    {
+      "id": "22222222",
+      "author": {
+        "name": "Mariana Oliveira",
+        "role": "UX Designer",
+        "avatarUrl": "https://github.com/niipvargas.png"
+      },
+      "publishedAt": "2025-03-16T10:15:00Z",
+      "content": "Design de interfaces pensando na acessibilidade é essencial! Recentemente, realizei uma pesquisa sobre como melhorar a experiência de navegação para pessoas com deficiência visual e auditiva. Implementamos melhorias como contraste adequado, suporte a leitores de tela e navegação por teclado. Pequenas mudanças podem fazer uma grande diferença na inclusão digital!"
+    },
+    {
+      "id": "5",
+      "content": "TESTANDO A TESTADEIRA DE TESTAGEMS PARA TESTE COM TESTE",
+      "publishedAt": "2025-03-19T00:51:22.003Z",
+      "author": {
+        "name": "Gustavo Souza",
+        "role": "Full-Stack Developer",
+        "avatarUrl": "https://github.com/gusttavosouza.png"
+      }
+    },
+    {
+      "id": "6",
+      "content": "testet",
+      "publishedAt": "2025-03-19T01:02:33.631Z",
+      "author": {
+        "name": "Gustavo Souza",
+        "role": "Full-Stack Developer",
+        "avatarUrl": "https://github.com/gusttavosouza.png"
+      }
+    },
+    {
+      "id": 1,
+      "content": "teste",
+      "publishedAt": "2025-03-20T22:28:53.022Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": 8,
+      "content": "teste\n",
+      "publishedAt": "2025-03-20T22:39:14.399Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": 9,
+      "content": "",
+      "publishedAt": "2025-03-20T23:29:40.209Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": 10,
+      "content": "",
+      "publishedAt": "2025-03-20T23:53:23.903Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": 11,
+      "content": "fvewaegvtrwenh",
+      "publishedAt": "2025-03-20T23:54:58.647Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": 12,
+      "content": "teste botao custom",
+      "publishedAt": "2025-03-21T00:28:11.233Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    }
+  ]
+}

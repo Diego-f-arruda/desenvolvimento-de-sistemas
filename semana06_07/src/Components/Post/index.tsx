@@ -1,55 +1,69 @@
-import Avatar from "../avatar";
-import "./styles.css"
+'use client'
+
+import { FormEvent, useState } from "react";
+import Avatar from "../Avatar";
+import "./styles.css";
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import TextArea from "../TextArea";
+import ButtonCuston from "../ButtonCustom";
+
 type Author = {
     name: string;
     role: string;
     avatarUrl: string;
 }
 
-// type Comment = {
-//     message: string;
-//     publishedAt: Date;
-//     like: number;
-//     author: Author
-// }
-
-type PostProps= {
-    post:{
+type PostProps = {
+    post: {
         author: Author;
         publishedAt: Date;
         content: string;
-        //comments: Comment[]
     }
 }
 
-export default function Post({post}: PostProps){
-    return(
+export default function Post({ post }: PostProps) {
+    const [newComment, setNewComment] = useState<string>('');
+
+    function handleCreateNewComment(event: FormEvent) {
+        event.preventDefault();
+        alert(newComment)
+    }
+
+    const dateFormat = formatDistanceToNow(post.publishedAt, {
+        locale: ptBR,
+        addSuffix: true
+    })
+
+    return (
         <article className="post">
             <header>
                 <div className="author">
-                    <Avatar src={"https://github.com/diego-f-arruda.png"} hasBorder />
+                    <Avatar src={post.author.avatarUrl} hasBorder />
                     <div className="author-info">
-                        <strong>Diego Arruda</strong>
-                        <span>Desenvolvedor</span>
+                        <strong>{post.author.name}</strong>
+                        <span>{post.author.role}</span>
                     </div>
                 </div>
-                <time>Públicado há 2 horas</time>
+
+                <time>
+                    {dateFormat}
+                </time>
             </header>
 
             <div className="content">
-                <p>
-                <strong>O que é Lorem Ipsum?</strong>
-                <i>Lorem Ipsum é simplesmente um texto modelo da indústria tipográfica e de impressão. Lorem Ipsum tem sido o texto modelo padrão da indústria desde os anos 1500, quando um impressor desconhecido pegou uma galera de tipos e os embaralhou para fazer um livro de espécimes de tipos. Ele sobreviveu não apenas cinco séculos, mas também ao salto para a composição eletrônica, permanecendo essencialmente inalterado. Foi popularizado na década de 1960 com o lançamento das folhas Letraset contendo passagens do Lorem Ipsum e, mais recentemente, com softwares de editoração eletrônica como o Aldus PageMaker, incluindo versões do Lorem Ipsum.</i>
-                </p>
+                <p>{post.content}</p>
             </div>
 
-            <form>
+            <form className="form" onSubmit={handleCreateNewComment}>
                 <strong>Deixe um comentário</strong>
-                <textarea placeholder="Deixe seu comentário" ></textarea>
+                <TextArea message={newComment} setMessage={setNewComment} placeHolder="Deixe um comentario"/>
+
                 <footer>
-                    <button>Publicar</button>
+                    <ButtonCuston />
                 </footer>
             </form>
+
         </article>
     )
 }
