@@ -140,7 +140,10 @@ export default function Post({ post, setPost }: PostProps) {
             </form>
 
             {post.comments?.length && post.comments.map(itemComment => (
-                <Comment key={itemComment.id} comment={itemComment}/>
+                <Comment  key={itemComment.id} 
+                comment={itemComment} 
+                handleDelete={handleDeleteComment} 
+                handleLike={handleLikeComment} />
                 
             ))}
 
