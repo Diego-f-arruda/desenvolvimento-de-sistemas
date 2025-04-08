@@ -1,0 +1,75 @@
+.comment{
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+}
+
+.comment-box{
+    flex: 1;/*Serve para se usar todo o espaço disponivel para ele */
+}
+
+.comment-content{
+    background-color: #29292e;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.comment-content header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+}
+
+.comment-content header strong{
+    display: block;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.comment-content header time{
+    display: block;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #8d8d99;
+}
+
+.comment-content header button{
+    background-color: transparent;
+    border: none;
+    color: #8d8d99;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.comment-content header button:hover{
+    color: #ff0000;
+}
+
+.comment-content p{
+    margin-top: 16px;
+    color: #c4c4cc;
+}
+
+.comment-box footer button{
+    margin-top: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #8d8d99;
+}
+
+.comment-box footer button:hover{
+    color: #658545;
+}
+
+.comment-box footer button svg{
+    margin-right: 8px;
+}
+
+.comment-box footer button span::before{
+    content: "\2022";
+    padding: 0 4px;
+}

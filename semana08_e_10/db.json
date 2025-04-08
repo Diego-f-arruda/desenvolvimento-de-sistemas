@@ -1,0 +1,123 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "author": {
+        "name": "Alice Silva",
+        "role": "Desenvolvedora Front-end",
+        "avatarUrl": "https://github.com/benedettmanu.png"
+      },
+      "publishedAt": "2025-03-18T12:00:00Z",
+      "content": "Hoje compartilhei algumas dicas sobre React no meu blog! Falei sobre como utilizar hooks personalizados para gerenciar estado de forma eficiente e evitar repetições de código. Também mencionei a importância da organização dos componentes e como utilizar o Context API para melhorar a comunicação entre eles. Confira o post completo no meu site!",
+      "comments": [
+        {
+          "id": "9b26a479-774a-4623-af01-e8dc1dd9438e",
+          "comment": "(y)",
+          "publishedAt": "2025-03-25T22:30:41.869Z",
+          "like": 0,
+          "author": {
+            "name": "Diego Arruda",
+            "role": "Desenvolvedor",
+            "avatarUrl": "http://github.com/diego-f-arruda.png"
+          }
+        },
+        {
+          "id": "b467cbe4-b79d-4e57-a447-e602d4f60365",
+          "comment": "cn jekwn cike\n",
+          "publishedAt": "2025-03-25T23:59:13.429Z",
+          "like": 0,
+          "author": {
+            "name": "Diego Arruda",
+            "role": "Desenvolvedor",
+            "avatarUrl": "http://github.com/diego-f-arruda.png"
+          }
+        },
+        {
+          "id": "6e8dadaa-8012-4ba6-804d-cef99067ed56",
+          "comment": "dfdf",
+          "publishedAt": "2025-03-25T23:59:21.060Z",
+          "like": 0,
+          "author": {
+            "name": "Diego Arruda",
+            "role": "Desenvolvedor",
+            "avatarUrl": "http://github.com/diego-f-arruda.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "author": {
+        "name": "Carlos Souza",
+        "role": "Engenheiro de Software",
+        "avatarUrl": "https://github.com/marcuss83.png"
+      },
+      "publishedAt": "2025-03-17T15:30:00Z",
+      "content": "Trabalhando em um projeto incrível com NestJS e WebSockets. Estou desenvolvendo um sistema de notificações em tempo real para uma plataforma de colaboração, onde os usuários recebem atualizações instantâneas sobre novas mensagens, tarefas concluídas e menções em comentários. O uso de WebSockets tem sido essencial para garantir uma experiência fluida e eficiente."
+    },
+    {
+      "id": "3",
+      "author": {
+        "name": "Mariana Oliveira",
+        "role": "UX Designer",
+        "avatarUrl": "https://github.com/niipvargas.png"
+      },
+      "publishedAt": "2025-03-16T10:15:00Z",
+      "content": "Design de interfaces pensando na acessibilidade é essencial! Recentemente, realizei uma pesquisa sobre como melhorar a experiência de navegação para pessoas com deficiência visual e auditiva. Implementamos melhorias como contraste adequado, suporte a leitores de tela e navegação por teclado. Pequenas mudanças podem fazer uma grande diferença na inclusão digital!"
+    },
+    {
+      "id": "22222222",
+      "author": {
+        "name": "Mariana Oliveira",
+        "role": "UX Designer",
+        "avatarUrl": "https://github.com/niipvargas.png"
+      },
+      "publishedAt": "2025-03-16T10:15:00Z",
+      "content": "Design de interfaces pensando na acessibilidade é essencial! Recentemente, realizei uma pesquisa sobre como melhorar a experiência de navegação para pessoas com deficiência visual e auditiva. Implementamos melhorias como contraste adequado, suporte a leitores de tela e navegação por teclado. Pequenas mudanças podem fazer uma grande diferença na inclusão digital!",
+      "comments": [
+        {
+          "comment": "SFDGHSDFGSDFGSDFGasdasdas",
+          "publishedAt": "2025-03-24T22:27:11.927Z",
+          "author": {
+            "name": "Diego Arruda",
+            "role": "Desenvolvedor",
+            "avatarUrl": "https://github.com/diego-f-arruda.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "content": "dfsadf",
+      "publishedAt": "2025-03-20T22:16:52.764Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      }
+    },
+    {
+      "id": "16",
+      "content": "teste 123",
+      "publishedAt": "2025-03-24T22:53:15.412Z",
+      "author": {
+        "name": "Diego Arruda",
+        "role": "Desenvolvedor",
+        "avatarUrl": "https://github.com/diego-f-arruda.png"
+      },
+      "comments": [
+        {
+          "id": "680ddf22-c26f-4de5-8890-f82cf8ad4ad6",
+          "comment": "testando",
+          "publishedAt": "2025-03-26T00:09:24.261Z",
+          "like": 0,
+          "author": {
+            "name": "Diego Arruda",
+            "role": "Desenvolvedor",
+            "avatarUrl": "http://github.com/diego-f-arruda.png"
+          }
+        }
+      ]
+    }
+  ]
+}
