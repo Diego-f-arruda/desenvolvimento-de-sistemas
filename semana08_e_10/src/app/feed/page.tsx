@@ -10,7 +10,7 @@ import { PiPencilLineBold } from "react-icons/pi";
 import Post from "@/components/Post";
 import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
-import TextareaCustom from "@/components/TextareaCustom";
+import TextareaCustom from "@/components/TextAreaCustom";
 import ButtonCustom from "@/components/ButtonCustom";
 
 type Author = {

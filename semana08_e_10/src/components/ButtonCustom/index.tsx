@@ -1,9 +1,15 @@
 import "./styles.css"
 
-export default function ButtonCustom() {
+type ButtonCustomProps = {
+    text?: string;
+    handle: () => void;
+}
+export default function ButtonCustom({ text, handle }: ButtonCustomProps) {
     return (
         <button type="submit" className="button-custom" onClick={handle}>
-            Publicar
+            {text ? text : (
+                'Login'
+            )}
         </button>
     )
 }

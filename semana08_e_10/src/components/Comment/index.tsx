@@ -37,7 +37,7 @@ export default function Comment({ comment, handleDelete, handleLike }: CommentPr
                             <strong>{comment.author.name}</strong>
                             <time>{dateFormat}</time>
                         </div>
-                        <button title='Deletar comentário' onClick={(event) => handleDelete(event, comment.id)}>
+                        <button title='Deletar comentário' onClick={(event) => handleDelete(event, comment.id)} data-testid={"button-delete"}>
                             <PiTrash size={24} />
                         </button>
                     </header>
@@ -46,7 +46,7 @@ export default function Comment({ comment, handleDelete, handleLike }: CommentPr
                 <footer>
                     <button onClick={(event) => handleLike(event, comment.id)}>
                         <PiThumbsUp />
-                        Apludir <span>{comment.like}</span>
+                        Aplaudir <span>{comment.like}</span>
                     </button>
                 </footer>
             </div>

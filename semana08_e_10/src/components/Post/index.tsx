@@ -6,7 +6,7 @@ import Avatar from "../Avatar";
 import "./styles.css";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import TextareaCustom from "../TextareaCustom";
+import TextareaCustom from "../TextAreaCustom";
 import ButtonCustom from "../ButtonCustom";
 import axios from "axios";
 import Comment from "../Comment";
