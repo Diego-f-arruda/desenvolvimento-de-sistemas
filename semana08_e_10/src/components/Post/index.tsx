@@ -6,7 +6,7 @@ import Avatar from "../Avatar";
 import "./styles.css";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import TextareaCustom from "../TextAreaCustom";
+import TextareaCustom from "@/components/TextareaCustom";
 import ButtonCustom from "../ButtonCustom";
 import axios from "axios";
 import Comment from "../Comment";
@@ -107,7 +107,7 @@ export default function Post({ post, setPost }: PostProps) {
     })
 
     return (
-        <article className="post">
+        <article className="post" data-testid="post-test">
             <header>
                 <div className="author">
                     <Avatar src={post.author.avatarUrl} hasBorder />
@@ -135,7 +135,7 @@ export default function Post({ post, setPost }: PostProps) {
                 />
 
                 <footer>
-                    <ButtonCustom />
+                    <ButtonCustom text="Publicar" handle={() => {}}  />
                 </footer>
             </form>
 

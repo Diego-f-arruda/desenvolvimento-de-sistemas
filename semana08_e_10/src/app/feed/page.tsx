@@ -10,7 +10,7 @@ import { PiPencilLineBold } from "react-icons/pi";
 import Post from "@/components/Post";
 import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
-import TextareaCustom from "@/components/TextAreaCustom";
+import TextareaCustom from "@/components/TextareaCustom";
 import ButtonCustom from "@/components/ButtonCustom";
 
 type Author = {
@@ -39,18 +39,26 @@ export default function Feed() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [content, setContent] = useState<string>("");
 
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   useEffect(() => {
     loadPost();
   }, []);
 
   async function loadPost() {
-    const response = await axios.get("http://localhost:3001/posts");
-    const postSort = response.data.sort(
-      (a: any, b: any) =>
+    try {
+      setIsLoading(true);
+      const response = await axios.get("http://localhost:3001/posts");
+      const postSort = response.data.sort((a: any, b: any) =>(
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    );
+      ));
 
-    setPosts(postSort);
+      setPosts(postSort);
+    } catch (error) {
+      alert("Erro...");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   async function handleCreatePost(event: FormEvent) {
@@ -101,12 +109,16 @@ export default function Feed() {
               title="O que você está pensando???"
             />
 
-            <ButtonCustom />
+            <ButtonCustom text="Publicar" handle={() => {}} />
           </form>
 
-          {posts.map((item) => (
-            <Post post={item} key={item.id} setPost={setPosts} />
-          ))}
+          {isLoading ? (
+            <h1>Carregando...</h1>
+          ) : (
+            posts.map((item) => (
+              <Post post={item} key={item.id} setPost={setPosts} />
+            ))
+          )}
         </main>
       </div>
     </div>
