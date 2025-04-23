@@ -1,0 +1,30 @@
+.container{
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*repeat(3, 1fr)*/
+    gap: 32px;
+    margin-top: -80px;
+}
+
+.card, .cardTotal{
+    background-color: #323238;
+    border-radius: 6px;
+    padding: 36px;
+}
+
+.card header, .cardTotal header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #c4c4cc;
+    font-size: 16px;
+    font-family: cursive;
+    margin-bottom: 16px;
+}
+
+.cardTotal{
+    background-color: #015f43;
+}
