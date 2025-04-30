@@ -1,0 +1,39 @@
+import { Task } from "../entity/Task";
+
+class TaskService{
+
+      //Fake DataBase
+      private taskList:Task[] = [];
+
+    public create(text: string): void {
+        /*Regra de negocio (Verificar se ja existe a tarefa informada
+            se existir - responder com erro
+            se nao segue o baile*/
+
+        
+        //verifica se foi enviado o text
+        if(text){ //-?- para nao ir como nao indefinido se coloca a interrogação
+            //return response.code(400).send({error: "Não foi enviada a propriedade text!"})
+        }
+    
+        const textJaExiste = this.taskList.find(task => task.getText() === text) //filter retorna o array filtrado, o findo retorna o item que foi filtrado
+        if(textJaExiste){
+            //return response.code(409).send({error: "Já existe uma tarefa com o texto informado!"})
+        }
+    
+        //Criar o objeto do tipo Task
+        const newTask = new Task(text)
+        console.log(newTask);
+    
+        //Adicionar a lista ou banco de dados
+        this.taskList.push(newTask)
+    
+    }
+
+    public getAll(): Task[] {
+        return this.taskList;
+    }
+}
+
+//ja exporta o objeto pronto, sem a necessidade de ter o new TaskService
+export const taskService = new TaskService()
