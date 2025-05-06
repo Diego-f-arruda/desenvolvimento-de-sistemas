@@ -1,4 +1,6 @@
 import { Task } from "../entity/Task";
+//services faz a parte das regras de negocios
+
 
 class TaskService{
 
@@ -32,6 +34,21 @@ class TaskService{
 
     public getAll(): Task[] {
         return this.taskList;
+    }
+
+    public getById(id: string): Task | null{
+        const task = this.taskList.find(task => task.getId() === id)
+        return task ? task : null
+    }
+
+    public updateCompleted(id: string, completed: boolean){
+        const task = this.getById(id)
+        if (task === null){
+            throw new Error("Tarefa não encontrada") 
+        }
+
+        task.setCompleted(completed)
+        return task;
     }
 }
 

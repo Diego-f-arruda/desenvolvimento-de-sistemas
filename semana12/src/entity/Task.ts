@@ -34,4 +34,12 @@ export class Task {
     public getUpdatedAt(){
         return this.updatedAt;
     }
+    
+    public setCompleted(completed: boolean){
+       this.completed = completed
+       this.updatedAt = new Date()
+    }
+    
+
+
 }
