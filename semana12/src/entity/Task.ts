@@ -35,11 +35,14 @@ export class Task {
         return this.updatedAt;
     }
     
-    public setCompleted(completed: boolean){
-       this.completed = completed
+    public setCompleted(){
+       this.completed = !this.completed //Não passando o completed como parametro e negando a frente já fara direto a alteração
        this.updatedAt = new Date()
     }
     
-
+    public setText(text: string) {
+        this.text = text;
+        this.updatedAt = new Date();
+    }
 
 }

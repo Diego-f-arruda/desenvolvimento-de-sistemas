@@ -29,13 +29,19 @@ export async function taskController(app: FastifyInstance) {
 
     //rota para buscar informação pelo ID
     app.get("/task/:id", (request: FastifyRequest, reply: FastifyReply) =>{
+        
+        //recebido ID por "parametro de rota"
+        //ID entre {} é uma desestruturação
         const { id } = request.params as { id: string};
-        const task = taskService.getById(id);
-        return task;
+        
+        
+            const task = taskService.getById(id);
+            return task;
+
     })
 
     //rota para modificar informação
-    app.patch("/task/:id", (request, reply) => {
+    app.patch("/task/:id/completed", (request, reply) => {
         //captura a informação
         const { id } = request.params as { id: string};
         const { completed } = request.body as { completed: boolean }
@@ -43,5 +49,23 @@ export async function taskController(app: FastifyInstance) {
         const task = taskService.updateCompleted(id, completed)
         //retorna uma response para quem chamou a rota
         return reply.code(200).send(task) 
+    })
+
+    app.patch("/task/:id/text", (request, reply) => {
+        const { id } = request.params as { id: string };
+        const { text } = request.body as { text: string };
+
+        try {
+            const task = taskService.updateText(id, text);
+            return reply.code(200).send(task);
+        }catch(error: any) {
+            return reply.code(404).send({ error: error.message });
+        }
+    })
+
+    app.delete("/task/:id", (request: FastifyRequest, reply: FastifyReply) => {
+        const { id } =  request.params as { id: string}
+        taskService.delete(id)
+        return reply.code(200).send();
     })
 }
