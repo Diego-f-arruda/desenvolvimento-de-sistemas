@@ -5,14 +5,14 @@ export class Task {
     private text: string;
     private completed: boolean;
     private createAt: Date;
-    private updatedAt: Date;
+    private updateAt: Date;
 
     constructor(text: string){
         this.id = randomUUID();
         this.text = text;
         this.completed = false;
         this.createAt = new Date();
-        this.updatedAt = new Date();
+        this.updateAt = new Date();
     }
     
     public getId(){
@@ -31,18 +31,18 @@ export class Task {
         return this.createAt;
     }
 
-    public getUpdatedAt(){
-        return this.updatedAt;
+    public getUpdateAt(){
+        return this.updateAt;
     }
     
     public setCompleted(){
        this.completed = !this.completed //Não passando o completed como parametro e negando a frente já fara direto a alteração
-       this.updatedAt = new Date()
+       this.updateAt = new Date()
     }
     
     public setText(text: string) {
         this.text = text;
-        this.updatedAt = new Date();
+        this.updateAt = new Date();
     }
 
 }
