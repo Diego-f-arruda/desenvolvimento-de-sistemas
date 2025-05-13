@@ -16,3 +16,15 @@ model Task {
 
   @@map("tasks")
 }
+
+model User {
+  id        String   @id
+  name      String
+  email     String   @unique
+  password  String
+  birthDate DateTime
+  createAt  DateTime
+  updateAt  DateTime @updatedAt
+
+  @@map("users")
+}

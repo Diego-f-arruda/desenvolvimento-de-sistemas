@@ -55,4 +55,6 @@ export async function taskController(app: FastifyInstance) {
         taskService.deleteTask(id)
         return reply.code(200).send();
     })
+
+    
 }

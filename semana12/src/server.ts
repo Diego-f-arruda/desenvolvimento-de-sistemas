@@ -1,7 +1,7 @@
 import fastify from "fastify";
-import { Task } from "./entity/Task";
 import { taskController } from "./controler/TaskController";
 import cors from "@fastify/cors"
+import { userController } from "./controler/UserController";
 
 const app = fastify();
 
@@ -10,6 +10,7 @@ app.register(cors, {
     methods:["GET", "POST", "PATCH", "DELETE"]
 })
 app.register(taskController)
+app.register(userController)
 
 app.listen({port:3333}).then(() => { //listen para ficar ouvindo e o then faz a função do await
     console.log("Backend rodando na porta 3333!!!")
