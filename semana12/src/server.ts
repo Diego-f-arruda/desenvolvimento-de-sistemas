@@ -2,25 +2,26 @@ import fastify from "fastify";
 import { taskController } from "./controler/TaskController";
 import cors from "@fastify/cors"
 import { userController } from "./controler/UserController";
+import authJwt from "./middleware/authJwt";
+import fastifySwagger from "@fastify/swagger";
+import { swaggerConfig } from "./config/swagger";
+import fastifySwaggerUi from "@fastify/swagger-ui";
 
 const app = fastify();
 
 app.register(cors, {
     origin: true,
-    methods:["GET", "POST", "PATCH", "DELETE"]
+    methods: ["GET", "POST", "PATCH", "DELETE"]
 })
+
+app.register(fastifySwagger, swaggerConfig)
+app.register(fastifySwaggerUi, { routePrefix: "/docs", uiConfig: { docExpansion: "list" } })
+app.register(authJwt)
 app.register(taskController)
 app.register(userController)
 
-app.listen({port:3333}).then(() => { //listen para ficar ouvindo e o then faz a função do await
+app.listen({ port: 3333 }).then(() => { //listen para ficar ouvindo e o then faz a função do await
     console.log("Backend rodando na porta 3333!!!")
 })
 
 
-
-// app.get("/home", (request, response) => {
-//     console.log("Entrou no endpoint home!!")
-//     console.log(request.method);
-//     console.log(request.url)
-//     return response.code(500).send("Error")
-// })
