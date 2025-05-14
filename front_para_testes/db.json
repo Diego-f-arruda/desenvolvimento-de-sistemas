@@ -1,0 +1,22 @@
+{
+  "task": [
+    {
+      "id": "c5d0bc3b-fc6e-4f52-95be-f3814ec7b2b8",
+      "text": "Feijão",
+      "completed": true,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": "1eaaedcd-c3b6-4087-9092-370b599d1104",
+      "text": "Tomate",
+      "completed": false,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": "46cc",
+      "text": "sfsafadsf"
+    }
+  ]
+}
