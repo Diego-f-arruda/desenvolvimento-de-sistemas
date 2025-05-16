@@ -9,8 +9,8 @@ declare module 'fastify' {
             name: string;
             email: string;
             birthDate: Date;
-            createAt: Date;
-            updateAt: Date;
+            createdAt: Date;
+            updatedAt: Date;
         },
         jwtVerify(): Promisse<void>
     }

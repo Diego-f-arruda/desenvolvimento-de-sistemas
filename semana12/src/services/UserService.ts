@@ -24,8 +24,8 @@ class UserService {
             email: email,
             password: passwordHashed,
             birthDate: new Date(birthDate),
-            createAt: new Date(),
-            updateAt: new Date()
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
 
         await prisma.user.create({ data: user });
@@ -47,8 +47,8 @@ class UserService {
             name: user.name,
             email: user.email,
             birthDate: user.birthDate,
-            createAt: user.createAt,
-            updateAt: user.updateAt
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt
         });
     }
 

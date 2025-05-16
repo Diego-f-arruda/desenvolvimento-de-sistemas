@@ -2,21 +2,23 @@ import { Task as TaskPrisma } from "@prisma/client";
 import { prisma } from "../prisma/client";
 
 class TaskService {
-    public async create(text: string): Promise<void> {
+    public async create(text: string, userId: string): Promise<void> {
         const task: TaskPrisma = {
             id: crypto.randomUUID(),
-            text: text,
+            name: text,
             completed: false,
-            createAt: new Date(),
-            updateAt: new Date()
+            userId: userId,
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
 
         await prisma.task.create({ data: task });
     }
 
-    public async getAll(): Promise<TaskPrisma[]> {
+    public async getAll(userId: string): Promise<TaskPrisma[]> {
         return await prisma.task.findMany({
-            orderBy: { createAt: 'desc' },
+            orderBy: { createdAt: 'desc' },
+            where: { userId: userId}
         });
     }
 
