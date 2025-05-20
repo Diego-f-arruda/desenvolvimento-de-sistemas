@@ -21,9 +21,8 @@ export async function taskController(app: FastifyInstance) {
 
     app.get("/task", { schema: generalTaskSchema }, async (request: FastifyRequest, reply) => {
         const { id } = request.user as User
+        
         const list = await taskService.getAll(id);
-
-
         return reply.code(200).send(list);
     })
 
