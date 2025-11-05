@@ -2,24 +2,34 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 
+int vermelhoE = D5;
+int azul = D6;
+int vermelhoD = D7;
+
+int PIN_TRIGG = D4;
+int PIN_ECHO = D3;
+const float valReferencia = 0.017175;
+float distancia;
+
 const char* WIFI_SSID = "iotdesi";
 const char* WIFI_PASSWORD = "iotdesi2025";
 
-const char* MQTT_SERVER = "192.168.0.2";
 const uint16_t MQTT_PORT = 1883;
-const char* MQTT_TOPIC_INFO = "device/ESP8266-DIEGO/info";
-const char* MQTT_TOPIC_STATE = "device/ESP8266-DIEGO/state";
-const char* MQTT_TOPIC_CMD = "device/ESP8266-DIEGO/cmd";
+const char* MQTT_SERVER = "192.168.0.2";
 const char* MQTT_USER = "aluno";
 const char* MQTT_PASS = "aluno123";
+const char* MQTT_TOPIC_INFO = "device/ESP8266-Diego/info";
+const char* MQTT_TOPIC_STATE = "device/ESP8266-Diego/state";
+const char* MQTT_TOPIC_CMD = "device/ESP8266-Diego/cmd";
 
 bool led1_state = false, led2_state = false, led3_state = false;
-
 WiFiClient espClient;
 PubSubClient mqtt(espClient);
 
-
 void publishInfo() {
+  Serial.printf("Enviando info topic: %s", MQTT_TOPIC_INFO);
+  Serial.println();
+
   StaticJsonDocument<256> payload;
   payload["model"] = "ESP8266";
   payload["location"] = "LAB IOT";
@@ -28,23 +38,20 @@ void publishInfo() {
 
   char buffer[256];
   size_t data = serializeJson(payload, buffer, sizeof(buffer));
-  Serial.printf("Enviando info topic %s", MQTT_TOPIC_INFO);
-
   mqtt.publish(MQTT_TOPIC_INFO, buffer, data);
   Serial.println("Enviado!!");
 }
 
 void publishState() {
-  Serial.printf("Enviando info topic %s", MQTT_TOPIC_STATE);
+  Serial.printf("Enviando info topic: %s", MQTT_TOPIC_STATE);
   Serial.println();
   StaticJsonDocument<128> payload;
   payload["led1"] = led1_state ? "on" : "off";
-  payload["led2"] = led2_state ? "on" : "off";
-  payload["led3"] = led3_state ? "on" : "off";
+  payload["ultrassonico1"] = distancia;
+
 
   char buffer[128];
   size_t data = serializeJson(payload, buffer, sizeof(buffer));
-
   mqtt.publish(MQTT_TOPIC_STATE, buffer, data);
   Serial.println("Enviado!!");
 }
@@ -60,15 +67,15 @@ void connectWifi() {
   uint8_t tentativas = 0;
   while (WiFi.status() != WL_CONNECTED && tentativas < 20) {
     delay(500);
-    Serial.println(".");
+    Serial.print(".");
     tentativas++;
   }
 
   if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("Wifi conectado! IP: ");
+    Serial.print("Wifi conectado! IP: ");
     Serial.print(WiFi.localIP());
   } else {
-    Serial.println("Falha ao conectar no WIFI.");
+    Serial.print("Falha ao conectar no WIFI.");
   }
 }
 
@@ -77,64 +84,99 @@ void connectMqtt() {
     return;
   }
 
-  Serial.println("Conectando ao MQTT..");
+  Serial.print("Conectando ao MQTT..");
   while (!mqtt.connected() && WiFi.status() == WL_CONNECTED) {
     String clientId = "esp8266-" + String(WiFi.macAddress());
     if (mqtt.connect(clientId.c_str(), MQTT_USER, MQTT_PASS)) {
-      Serial.println("Conectado ao MQTT...");
-
+      Serial.print("Conectado ao MQTT...");
       mqtt.subscribe(MQTT_TOPIC_CMD);
       publishInfo();
       publishState();
     } else {
-      Serial.println("Tentando conectar em 3s....");
+      Serial.print("Tentando conectar em 3s....");
+      Serial.print("\n");
       delay(3000);
     }
   }
 }
 
+// { target: "led1", state: "ON/OFF"}
 void subscribeCmd(char* topic, byte* payload, unsigned int lenght) {
   StaticJsonDocument<128> document;
   if (deserializeJson(document, payload, lenght)) return;
-    
+
   const char* target = document["target"];
   const char* state = document["state"];
 
-bool isOn = (strcasecmp(state, "on") == 0);
-
-  if(strcmp(target, "led1") == 0){
+  bool isOn = (strcasecmp(state, "on") == 0);
+  if (strcmp(target, "led1") == 0) {
     led1_state = isOn;
-  }else if(strcmp(target, "led2") == 0){
+    Serial.print(isOn);
+    digitalWrite(LED_BUILTIN, !isOn);
+  } else if (strcmp(target, "led2") == 0) {
     led2_state = isOn;
-  }else if(strcmp(target, "led3") == 0){
+  } else if (strcmp(target, "led3") == 0) {
     led3_state = isOn;
   }
 
   publishState();
 }
 
+
+void ledSos() {
+  digitalWrite(vermelhoE, HIGH);
+  digitalWrite(azul, LOW);
+  digitalWrite(vermelhoD, LOW);
+  delay(50);
+
+  digitalWrite(vermelhoE, LOW);
+  digitalWrite(azul, HIGH);
+  digitalWrite(vermelhoD, LOW);
+  delay(50);
+
+  digitalWrite(vermelhoE, LOW);
+  digitalWrite(azul, LOW);
+  digitalWrite(vermelhoD, HIGH);
+  delay(50);
+}
+
+void sensorUltrasonicoHc() {
+  digitalWrite(PIN_TRIGG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(PIN_TRIGG, LOW);
+  long duracao = pulseIn(PIN_ECHO, HIGH);
+
+  distancia = valReferencia * duracao;
+  Serial.println(distancia);
+
+  if (distancia < 336 && distancia > 1) {
+    ledSos();
+    publishState();
+  }
+}
+
 void setup() {
   Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
   WiFi.mode(WIFI_STA);
   mqtt.setServer(MQTT_SERVER, MQTT_PORT);
-
   mqtt.setCallback(subscribeCmd);
-
   connectWifi();
   connectMqtt();
+
+  pinMode(PIN_TRIGG, OUTPUT);
+  pinMode(PIN_ECHO, INPUT);
+
+  pinMode(vermelhoE, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(vermelhoD, OUTPUT);
 }
 
 void loop() {
-  if (WiFi.status() != WL_CONNECTED) {
-    connectWifi();
-  }
+  if (WiFi.status() != WL_CONNECTED) connectWifi();
+  if (!mqtt.connected()) connectMqtt();
+  mqtt.loop();
+  sensorUltrasonicoHc();
 
-
-
-
-  // static unsigned long lastUpdate = 0;
-  // if(mqtt.connected() && millis() - lastUpdate > 10000){
-  //   lastUpdate = millis();
-  //   publishState();
-  // }
 }
